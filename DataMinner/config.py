@@ -1,3 +1,3 @@
 SITE_MAIN_ADDR = {
-    "binance": "https://www.binance.com/cn/",
+    "binance": "https://www.binance.com",
 }
