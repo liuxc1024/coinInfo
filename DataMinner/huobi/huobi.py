@@ -29,7 +29,8 @@ def get_data():
         trade_url = "https://www.huobi.com/coin_coin/exchange/#s="+cur_coin_name+"_"+trade_coin_name
         http = common.phantom_get(trade_url)
         html = etree.HTML(http)
-        divs = html.xpath("//span[@class='ticker_close']")
+        cur_price = html.xpath("//span[@class='ticker_close']")[0].text
+        print(cur_price)
 
 
 if __name__ == "__main__":
