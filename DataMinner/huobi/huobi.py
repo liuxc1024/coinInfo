@@ -25,18 +25,11 @@ def get_data():
         cur_coin_name = cur_coin["base-currency"]
         trade_coin_name = cur_coin["quote-currency"]
         print(cur_coin_name + ":" + trade_coin_name)
-        # https://www.huobi.com/wicc_usdt/depth/?trade=exchange
-        deep_url = "https://www.huobi.com/"+cur_coin_name+"_"+trade_coin_name+"/depth/?trade=exchange"
-        http = connPool.request(method="get", url=deep_url)
-        html = etree.HTML(http.data)
-        divs = html.xpath("//div[@class='inner']")
 
         trade_url = "https://www.huobi.com/coin_coin/exchange/#s="+cur_coin_name+"_"+trade_coin_name
-        http = connPool.request(method="get", url=trade_url)
-        html = etree.HTML(http.data)
-        print(http.data.decode())
+        http = common.phantom_get(trade_url)
+        html = etree.HTML(http)
         divs = html.xpath("//span[@class='ticker_close']")
-        print(divs)
 
 
 if __name__ == "__main__":

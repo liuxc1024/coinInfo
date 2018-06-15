@@ -14,6 +14,7 @@ page.open(url, function(status) {
     console.log(ua);
 	var path = 'd:/output.html';
     fs.write(path, ua, 'w');
+    fs.write('d:/flag', '0', 'w')
   }
   phantom.exit();
 });

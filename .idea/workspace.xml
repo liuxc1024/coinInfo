@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adc2aac3-0cb4-402a-a770-692514fea67d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/DataMinner/huobi/huobiconfig.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataMinner/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataMinner/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataMinner/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataMinner/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataMinner/huobi/huobi.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataMinner/huobi/huobi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataMinner/phantomGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/DataMinner/phantomGet.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataMinner/common.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+              <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -50,8 +49,8 @@
       <file leaf-file-name="phantomGet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataMinner/phantomGet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+            <state relative-caret-position="223">
+              <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -59,8 +58,8 @@
       <file leaf-file-name="binance.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataMinner/binance/binance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="350">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -73,11 +72,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="huobi.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="huobi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataMinner/huobi/huobi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="217">
+              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -93,7 +92,7 @@
       <file leaf-file-name="binanceUsdt.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataMinner/binance/binanceUsdt.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="850">
               <caret column="34729" selection-start-column="34729" selection-end-column="34729" />
             </state>
           </provider>
@@ -102,7 +101,7 @@
       <file leaf-file-name="binanceBnb.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataMinner/binance/binanceBnb.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="1625">
               <caret column="65764" selection-start-column="65764" selection-end-column="65764" />
             </state>
           </provider>
@@ -139,8 +138,9 @@
         <option value="$PROJECT_DIR$/DataMinner/binance/binance.py" />
         <option value="$PROJECT_DIR$/DataMinner/config.py" />
         <option value="$PROJECT_DIR$/DataMinner/huobi/huobiconfig.py" />
-        <option value="$PROJECT_DIR$/DataMinner/huobi/huobi.py" />
+        <option value="$PROJECT_DIR$/DataMinner/phantomGet.js" />
         <option value="$PROJECT_DIR$/DataMinner/common.py" />
+        <option value="$PROJECT_DIR$/DataMinner/huobi/huobi.py" />
       </list>
     </option>
   </component>
@@ -156,7 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,6 +184,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,7 +209,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.common">
+  <component name="RunManager" selected="Python.huobi">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -340,8 +340,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.common" />
         <item itemvalue="Python.huobi" />
+        <item itemvalue="Python.common" />
         <item itemvalue="Python.binance (1)" />
         <item itemvalue="Python.get_list" />
         <item itemvalue="Python.binance_get_list" />
@@ -374,24 +374,24 @@
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2574184" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2574184" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293919" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46393442" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3293919" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3293919" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.46393442" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3293919" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39836067" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39836067" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -399,13 +399,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DataMinner/huobi/huobi.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -413,10 +406,34 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="82" />
+      <option name="time" value="85" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DataMinner/binance/binanceUsdt.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret column="34729" selection-start-column="34729" selection-end-column="34729" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataMinner/binance/binanceBnb.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1625">
+          <caret column="65764" selection-start-column="65764" selection-end-column="65764" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataMinner/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DataMinner/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -639,14 +656,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataMinner/binance/binanceBnb.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="1625">
           <caret column="65764" selection-start-column="65764" selection-end-column="65764" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataMinner/binance/binanceUsdt.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="850">
           <caret column="34729" selection-start-column="34729" selection-end-column="34729" />
         </state>
       </provider>
@@ -656,8 +673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataMinner/binance/binance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="350">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -674,6 +691,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DataMinner/phantomGet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DataMinner/huobi/huobiconfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -681,29 +705,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataMinner/huobi/huobi.py">
+    <entry file="file://$PROJECT_DIR$/DataMinner/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="25">
+          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataMinner/phantomGet.js">
+    <entry file="file://$PROJECT_DIR$/DataMinner/huobi/huobi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataMinner/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        <state relative-caret-position="217">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
