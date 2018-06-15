@@ -90,6 +90,7 @@ def get_data():
             result.append(cur_data)
     return result
 
+
 if __name__ == "__main__":
     result = get_data()
     print(len(result))
