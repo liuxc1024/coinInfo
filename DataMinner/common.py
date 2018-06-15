@@ -1,3 +1,8 @@
+import os
+import shutil
+import time
+
+
 class DeepUnit:
     def __init__(self, price, num):
         self.price = price
@@ -19,3 +24,17 @@ class CoinData:
         self.sell_list = sell_list
         self.cur_price = cur_price
         self.kline_list = kline_list
+
+
+def phantom_get(url):
+    url_file = open('d:/url.txt', 'w')
+    url_file.write(url)
+    url_file.flush()
+    url_file.close()
+    shutil.copy("phantomGet.js", "d:/phantomGet.js")
+    time.sleep(1)
+    os.system("phantomjs d:/phantomGet.js")
+
+
+if __name__ == "__main__":
+    phantom_get("https://www.baidu.com")
