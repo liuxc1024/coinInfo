@@ -35,11 +35,12 @@ def get_data():
            "/-/x/pro/v1/settings/symbols?r=y5syhk7spca4i1i270t3xr&language=en-us")
     coin_list = get_coin_list(http.data)
 
-    print(len(coin_list))
+    total_num = len(coin_list)
+    cur_num = 0
     for cur_coin in coin_list:
+        cur_num = cur_num + 1
         cur_coin_name = cur_coin["base-currency"]
         trade_coin_name = cur_coin["quote-currency"]
-        print(cur_coin_name + ":" + trade_coin_name)
 
         trade_url = "https://www.huobi.com/coin_coin/exchange/#s="+cur_coin_name+"_"+trade_coin_name
         http = common.phantom_get(trade_url)
@@ -53,10 +54,10 @@ def get_data():
         kline_list = []
         cur_data = common.CoinData(coin_name=cur_coin_name, trade_coin_name=trade_coin_name, buy_list=buy_list,
                                    sell_list=sell_list, cur_price=cur_price, kline_list=kline_list)
-        print(cur_data)
         result.append(cur_data)
+        log.warning("huobi %s_%s:  " %(cur_coin_name, trade_coin_name) + str(cur_num) + "/" + str(total_num))
     return result
 
 
 if __name__ == "__main__":
-    None
+    get_data()

@@ -4,6 +4,7 @@ import urllib3
 import logging
 log = logging.getLogger("bianceDataGet")
 import DataMinner.common as common
+import os
 
 
 def get_trade_url_list(html_content):
@@ -63,30 +64,34 @@ def get_data():
     btc_trade_list = get_trade_url_list(http.data)
     connPool.clear()
 
+    cur_path = os.path.dirname(__file__)
     # get bnb trade list
-    file = open("binanceBnb.txt", encoding="utf-8")
+    file = open(cur_path + "/binanceBnb.txt", encoding="utf-8")
     content = file.read()
     bnb_trade_list = get_trade_url_list(content)
 
     # get eth trade list
-    file = open("binanceEth.txt", encoding="utf-8")
+    file = open(cur_path + "/binanceEth.txt", encoding="utf-8")
     content = file.read()
     eth_trade_list = get_trade_url_list(content)
 
     # get usdt trade list
-    file = open("binanceUsdt.txt", encoding="utf-8")
+    file = open(cur_path + "/binanceUsdt.txt", encoding="utf-8")
     content = file.read()
     usdt_trade_list = get_trade_url_list(content)
 
     result = []
-    for cur_btc_coin in btc_trade_list + bnb_trade_list + eth_trade_list + usdt_trade_list:
+    total_list = btc_trade_list + bnb_trade_list + eth_trade_list + usdt_trade_list
+    total_num = len(total_list)
+    cur_num = 0
+    for cur_btc_coin in total_list:
+        cur_num = cur_num + 1
         try:
             cur_data = get_coin_data_from_tradecoin(cur_btc_coin)
         except:
             log.error("getdata error of:  " + cur_btc_coin)
         else:
-            log.info("getdata success of:" + cur_btc_coin)
-            print(cur_btc_coin + ":: get data OK")
+            log.warning("binance " + cur_btc_coin + ":  " + str(cur_num) + "/" + str(total_num))
             result.append(cur_data)
     return result
 
