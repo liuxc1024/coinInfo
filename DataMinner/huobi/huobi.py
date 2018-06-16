@@ -31,27 +31,50 @@ def get_deep_list_from_ele(depth_ele):
 def get_data():
     result = []
     connPool = urllib3.PoolManager()
-    http = connPool.request(method='get', url=config.SITE_MAIN_ADDR["huobi"] +
-           "/-/x/pro/v1/settings/symbols?r=y5syhk7spca4i1i270t3xr&language=en-us")
-    coin_list = get_coin_list(http.data)
+    http = connPool.request(method='get', url="https://api.huobipro.com/v1/common/symbols")
+    http = eval(http.data)
 
-    total_num = len(coin_list)
+    total_num = len(http['data'])
     cur_num = 0
-    for cur_coin in coin_list:
+    for cur_coin in http['data']:
         cur_num = cur_num + 1
         cur_coin_name = cur_coin["base-currency"]
         trade_coin_name = cur_coin["quote-currency"]
 
-        trade_url = "https://www.huobi.com/coin_coin/exchange/#s="+cur_coin_name+"_"+trade_coin_name
-        http = common.phantom_get(trade_url)
-        html = etree.HTML(http)
-        cur_price = html.xpath("//span[@id='tickerClose']")[0].text
+        trade_url = "https://api.huobipro.com/market/detail?symbol="+cur_coin_name+trade_coin_name
+        http = connPool.request(method='get', url=trade_url)
+        http = eval(http.data)
+        cur_price = http['tick']['close']
 
-        depth_ele = html.xpath("//div[@id='market_depth']//dl")
-        sell_list = get_deep_list_from_ele(depth_ele[0])
-        buy_list = get_deep_list_from_ele(depth_ele[1])
+        sell_list = []
+        buy_list = []
+        deep_url = "https://api.huobipro.com/market/depth?symbol="+\
+                   cur_coin_name+trade_coin_name+"&type=step1"
+        http = connPool.request(method='get', url=deep_url)
+        http = eval(http.data)
+        cur_deep = http['tick']
+        for cur_buy_deep in cur_deep['bids']:
+            cur_price = cur_buy_deep[0]
+            amount = cur_buy_deep[1]
+            cur_deepcon = common.DeepUnit(price=cur_price, num=amount)
+            buy_list.append(cur_deepcon)
+        for cur_buy_deep in cur_deep['asks']:
+            cur_price = cur_buy_deep[0]
+            amount = cur_buy_deep[1]
+            cur_deepcon = common.DeepUnit(price=cur_price, num=amount)
+            sell_list.append(cur_deepcon)
 
         kline_list = []
+        url = 'https://api.huobipro.com/market/history/kline?period=1min&size=200&symbol=' \
+              + cur_coin_name + trade_coin_name
+        kline_http = connPool.request(method='get', url=url)
+        kline_con = eval(kline_http.data)
+        for cur_k in kline_con['data']:
+            high = cur_k['high']
+            low = cur_k['low']
+            close = cur_k['close']
+            cur_k_data = common.KlineUnit(high=high, low=low, close=close)
+            kline_list.append(cur_k_data)
         cur_data = common.CoinData(coin_name=cur_coin_name, trade_coin_name=trade_coin_name, buy_list=buy_list,
                                    sell_list=sell_list, cur_price=cur_price, kline_list=kline_list)
         result.append(cur_data)

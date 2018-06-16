@@ -10,10 +10,11 @@ page.open(url, function(status) {
 	window.setTimeout(function () {
 			console.log("phantom get url:" + url)
 			var ua = page.content;
+			console.log(ua)
 			var path = 'd:/output.html';
 			fs.write(path, ua, 'w');
 			fs.write('d:/flag', '0', 'w');
 			phantom.exit();
-          }, 30000);
+          }, 10000);
   }
 });
