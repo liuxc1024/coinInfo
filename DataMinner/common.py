@@ -26,17 +26,29 @@ class CoinData:
         self.kline_list = kline_list
 
 
-def phantom_get(url):
+class MediaCoinPrice:
+    def __init__(self, coin_name, type, price):
+        self.coin_name = coin_name
+        self.type = type
+        self.price = price
+
+
+def phantom_get(url, is_wait=False):
     url_file = open('d:/url.txt', 'w')
     if os.path.exists('d:/flag'):
         os.remove('d:/flag')
     url_file.write(url)
     url_file.flush()
     url_file.close()
-    if not os.path.exists("d:/phantomGet.js"):
-        shutil.copy("phantomGet.js", "d:/phantomGet.js")
+    if is_wait:
+        js_name = "phantomGetWaitTime"
+    else:
+        js_name = "phantomGet"
+    if not os.path.exists("d:/"+js_name+".js"):
+        cur_path = os.path.dirname(__file__)
+        shutil.copy(cur_path+"\\"+js_name+".js", "d:/"+js_name+".js")
         time.sleep(1)
-    os.system("phantomjs d:/phantomGet.js")
+    os.system("phantomjs d:/"+js_name+".js")
     ok = False
     for i in range(300):
         if os.path.exists('d:/flag'):

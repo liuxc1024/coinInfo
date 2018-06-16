@@ -1,3 +1,0 @@
-kline_data = {
-
-}
