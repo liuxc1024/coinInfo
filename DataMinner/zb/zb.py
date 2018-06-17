@@ -5,6 +5,8 @@ import logging
 import time
 log = logging.getLogger("zbDataGet")
 import DataMinner.common as common
+false = False
+true = True
 
 
 def get_data():
@@ -46,11 +48,18 @@ def get_data():
         con = eval(conn_pool.request(method='get', url=kline_url).data)
         kline_list = []
         time.sleep(1)
-        try:
-            con['data']
-        except:
-            time.sleep(5)
-            con = eval(conn_pool.request(method='get', url=kline_url).data)
+        ok_flag = False
+        for i in range(10):
+            try:
+                con['data']
+                ok_flag = True
+            except:
+                time.sleep(5*i)
+                con = eval(conn_pool.request(method='get', url=kline_url).data)
+            else:
+                break
+        if not ok_flag:
+            continue
         for cur_k in con['data']:
             high = cur_k[2]
             low = cur_k[3]
