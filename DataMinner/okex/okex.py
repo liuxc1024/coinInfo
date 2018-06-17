@@ -7,7 +7,7 @@ import DataMinner.common as common
 import os
 
 
-def get_data():
+def get_data(trade_coin_list):
     result = []
     conn = urllib3.PoolManager()
     coin_list_url = "https://www.okex.com/marketList"
@@ -25,11 +25,13 @@ def get_data():
         names = cur_pair.split('_')
         coin_name = names[0]
         trade_coin_name = names[1]
+        if trade_coin_name not in trade_coin_list:
+            continue
 
         price_url = "https://www.okex.com/api/v1/ticker.do?symbol="+coin_name+"_"+trade_coin_name
         http = conn.request(method='get', url=price_url).data
         http = eval(http)
-        cur_price = http['ticker']['last']
+        cur_price = float(http['ticker']['last'])
 
         deep_url = "https://www.okex.com/api/v1/depth.do?symbol="+coin_name+"_"+trade_coin_name
         http = eval(conn.request(method='get', url=deep_url).data)
@@ -51,10 +53,11 @@ def get_data():
         http = eval(http)
         kline_list = []
         for cur_k in http:
-            high = cur_k[2]
-            low = cur_k[3]
-            close = cur_k[4]
-            cur_k_unit = common.KlineUnit(high=high, low=low, close=close)
+            cur_time = cur_k[0]
+            high = float(cur_k[2])
+            low = float(cur_k[3])
+            close = float(cur_k[4])
+            cur_k_unit = common.KlineUnit(time=cur_time, high=high, low=low, close=close)
             kline_list.append(cur_k_unit)
 
         cur_data = common.CoinData(coin_name, trade_coin_name, buy_list, sell_list, cur_price, kline_list)

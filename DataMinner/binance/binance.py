@@ -37,27 +37,28 @@ def get_coin_data_from_tradecoin(tradecoin):
     buy_list = []
     kline_list = []
     for cur_sell in deep_data["asks"]:
-        cur_price = cur_sell[0]
-        cur_num = cur_sell[1]
+        cur_price = float(cur_sell[0])
+        cur_num = float(cur_sell[1])
         cur_deep_unit = common.DeepUnit(cur_price, cur_num)
         sell_list.append(cur_deep_unit)
     for cur_buy in deep_data["bids"]:
-        cur_price = cur_buy[0]
-        cur_num = cur_buy[1]
+        cur_price = float(cur_buy[0])
+        cur_num = float(cur_buy[1])
         cur_deep_unit = common.DeepUnit(cur_price, cur_num)
         buy_list.append(cur_deep_unit)
     for cur_kline in kline_data:
-        cur_high = cur_kline[2]
-        cur_low = cur_kline[3]
-        cur_close = cur_kline[4]
-        cur_kline_unit = common.KlineUnit(high=cur_high, low=cur_low, close=cur_close)
+        cur_time_stamp = float(cur_kline[1])
+        cur_high = float(cur_kline[2])
+        cur_low = float(cur_kline[3])
+        cur_close = float(cur_kline[4])
+        cur_kline_unit = common.KlineUnit(time=cur_time_stamp, high=cur_high, low=cur_low, close=cur_close)
         kline_list.append(cur_kline_unit)
-    cur_price = kline_data[-1][4]
+    cur_price = float(kline_data[-1][4])
     cur_data = common.CoinData(coin_name, trade_coin_name, buy_list, sell_list, cur_price, kline_list)
     return cur_data
 
 
-def get_data():
+def get_data(trade_coin_list):
     # get btc trade list
     connPool = urllib3.PoolManager()
     http = connPool.request(method='get', url=config.SITE_MAIN_ADDR["binance"] + "/cn")
@@ -85,6 +86,9 @@ def get_data():
     total_num = len(total_list)
     cur_num = 0
     for cur_btc_coin in total_list:
+        cur_trade_coin = cur_btc_coin.split('/')[3].split('_')[1]
+        if cur_trade_coin not in trade_coin_list:
+            continue
         cur_num = cur_num + 1
         try:
             cur_data = get_coin_data_from_tradecoin(cur_btc_coin)

@@ -28,7 +28,7 @@ def get_deep_list_from_ele(depth_ele):
     return result_list
 
 
-def get_data():
+def get_data(trade_coin_list):
     result = []
     connPool = urllib3.PoolManager()
     http = connPool.request(method='get', url="https://api.huobipro.com/v1/common/symbols")
@@ -40,6 +40,8 @@ def get_data():
         cur_num = cur_num + 1
         cur_coin_name = cur_coin["base-currency"]
         trade_coin_name = cur_coin["quote-currency"]
+        if trade_coin_name not in trade_coin_list:
+            continue
 
         trade_url = "https://api.huobipro.com/market/detail?symbol="+cur_coin_name+trade_coin_name
         http = connPool.request(method='get', url=trade_url)
@@ -70,10 +72,11 @@ def get_data():
         kline_http = connPool.request(method='get', url=url)
         kline_con = eval(kline_http.data)
         for cur_k in kline_con['data']:
+            cur_time = cur_k['id']
             high = cur_k['high']
             low = cur_k['low']
             close = cur_k['close']
-            cur_k_data = common.KlineUnit(high=high, low=low, close=close)
+            cur_k_data = common.KlineUnit(time=cur_time, high=high, low=low, close=close)
             kline_list.append(cur_k_data)
         cur_data = common.CoinData(coin_name=cur_coin_name, trade_coin_name=trade_coin_name, buy_list=buy_list,
                                    sell_list=sell_list, cur_price=cur_price, kline_list=kline_list)

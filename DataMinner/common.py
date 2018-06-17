@@ -10,7 +10,8 @@ class DeepUnit:
 
 
 class KlineUnit:
-    def __init__(self, high, low, close):
+    def __init__(self, time, high, low, close):
+        self.time = time
         self.high = high
         self.low = low
         self.close = close
@@ -19,7 +20,7 @@ class KlineUnit:
 class CoinData:
     def __init__(self, coin_name, trade_coin_name, buy_list, sell_list, cur_price, kline_list):
         self.coin_name = coin_name
-        self.trade_coin_nam = trade_coin_name
+        self.trade_coin_name = trade_coin_name
         self.buy_list = buy_list
         self.sell_list = sell_list
         self.cur_price = cur_price

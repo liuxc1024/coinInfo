@@ -11,6 +11,8 @@ def get_pullget_table():
 def check_pull(dfs, sitename, coinname):
     coinname = coinname.upper()
     cur_df = dfs[sitename]
+    if cur_df[cur_df['coin_name']==coinname].empty:
+        return False
     if cur_df[cur_df['coin_name']==coinname]['pull'].values[0] == 1:
         return True
     else:
@@ -20,6 +22,8 @@ def check_pull(dfs, sitename, coinname):
 def check_get(dfs, sitename, coinname):
     coinname = coinname.upper()
     cur_df = dfs[sitename]
+    if cur_df[cur_df['coin_name']==coinname].empty:
+        return False
     if cur_df[cur_df['coin_name']==coinname]['get'].values[0] == 1:
         return True
     else:
