@@ -3,7 +3,7 @@ import DataMinner.main as data
 
 def time_average_predict(alpha, kline_list):
     if len(kline_list) < 2:
-        return kline_list[0].close
+        return None
     if kline_list[0].time > kline_list[1].time:
         kline_list.reverse()
     pre_com = kline_list[0].close
@@ -40,6 +40,8 @@ def deep_intersect_gain(sell_list, buy_list):
 
 
 def compute_overgain_ratio(buy_price, sell_price):
+    if buy_price == 0:
+        return 0
     return (sell_price-buy_price)/buy_price*100
 
 

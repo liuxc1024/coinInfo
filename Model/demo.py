@@ -17,8 +17,10 @@ while True:
         for cur_gate in gate_data:
             for cur_huobi in huobi_data:
                 if cur_gate.coin_name == cur_huobi.coin_name:
-                    cur_gate_pre_price = model.time_average_predict(0.6, cur_gate.kline_list)
-                    cur_huobi_pre_price = model.time_average_predict(0.6, cur_huobi.kline_list)
+                    #cur_gate_pre_price = model.time_average_predict(0.6, cur_gate.kline_list)
+                    #cur_huobi_pre_price = model.time_average_predict(0.6, cur_huobi.kline_list)
+                    cur_gate_pre_price = cur_gate.cur_price
+                    cur_huobi_pre_price = cur_huobi.cur_price
                     if cur_gate_pre_price > cur_huobi_pre_price:
                         if Data.check_get('huobi', cur_huobi.coin_name) == True \
                                 and Data.check_pull('gate', cur_gate.coin_name) == True:
