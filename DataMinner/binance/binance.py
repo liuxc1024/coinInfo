@@ -86,7 +86,7 @@ def get_data(trade_coin_list):
     total_num = len(total_list)
     cur_num = 0
     for cur_btc_coin in total_list:
-        cur_trade_coin = cur_btc_coin.split('/')[3].split('_')[1]
+        cur_trade_coin = cur_btc_coin.split('/')[-1].split('_')[1]
         if cur_trade_coin not in trade_coin_list:
             continue
         cur_num = cur_num + 1
