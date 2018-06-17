@@ -2,7 +2,7 @@ import DataMinner.main as Data
 import Model.common as model
 
 while True:
-    site_list = ['gate', 'huobi']
+    site_list = ['gate', 'huobi', 'zb', 'okex', 'binance']
     trade_coin_list = ['usdt']
     Data.init(site_list, trade_coin_list)
 
